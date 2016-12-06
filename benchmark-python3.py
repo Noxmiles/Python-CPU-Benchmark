@@ -4,10 +4,10 @@
 import time
 import platform
 
-print('Einfacher Benchmark zum Testen der CPU Geschwindigkeit')
+print('Simple Python Benchmark for measureing the CPU speed.')
 
 if "Linux" == platform.system():
-  print('Prozessor:')
+  print('Processor:')
   with open('/proc/cpuinfo') as f:
     for line in f:
         # Ignore the blank line separating the information between
@@ -18,12 +18,12 @@ if "Linux" == platform.system():
                 print(model_name)
                 break
 else:
-  print('Prozessor Name kann nur bei Linux automatisch angezeigt werden.')
+  print('Your CPU is only shown automatic on Linux system.')
 
-laeufe = input( '\nWie viele Wiederholungen pro Versuch? [def=1000] ')
+laeufe = input( '\nHow many tries per iteration? [def=1000] ')
 if laeufe == '': laeufe = 1000
 laeufe = int(laeufe)
-wiederholungen = input( 'Wie viele Durchlaeufe? [def=10] ')
+wiederholungen = input( 'How many iterations? [def=10] ')
 if wiederholungen == '': wiederholungen = 10
 wiederholungen = int(wiederholungen)
 
@@ -45,8 +45,8 @@ for a in range(0,wiederholungen):
   dauer = (ende - start)
   dauer = round(dauer, 3)
   schnitt += dauer
-  print('Zeit: ' + str(dauer) + 's')
+  print('Time: ' + str(dauer) + 's')
 
 schnitt = round(schnitt / wiederholungen, 3)
-print('Mittel: ' + str(schnitt) + 's')
+print('Avarage: ' + str(schnitt) + 's')
 
